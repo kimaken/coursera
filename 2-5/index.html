@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animation</title>
+    <style>
+        @keyframes trs{
+            25% {
+                transform: translate(100px, 0);
+            }
+            50% {
+                transform: translate(90px, 100%);
+            }
+            75%, 100% {
+                transform: translate(100px, 100%) scale(2) rotate(145deg);
+            }
+        }
+        body:hover .animation{
+            background-color: #ff0;
+        }
+        .animation {
+            width: 150px;
+            height: 150px;
+            background-color: #f00;
+            transition: background-color 500ms linear;
+            animation: trs 5s;
+            
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+    </style>
+</head>
+<body>
+    <div class="animation"></div>
+</body>
+</html>

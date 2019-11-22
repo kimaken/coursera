@@ -1,0 +1,334 @@
+/*Ссылка на шрифты кроме основного 'https://fonts.googleapis.com/css?family=Farsan|Hind+Siliguri|Racing+Sans+One|Six+Caps|Space+Mono:700'*/
+
+@font-face {
+    font-family: Chomsky;
+    src: 
+        url(fonts/Chomsky.woff) format('woff'), 
+        url(fonts/Chomsky.otf) format('opentype');
+}
+
+body
+{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.clear-fix:after
+{
+    display: block;
+    clear: both;
+
+    content: '';
+}
+
+/*––––––––––––––––––Шапка газеты––––––––––––––––––––*/
+.header
+{
+    margin: 35px 0 25px;
+}
+
+.header__info
+{
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+    width: 200px;
+    padding: 25px 10px;
+
+    border: 1px solid;
+}
+
+.header__weather
+{
+    float: right;
+    font-size: .8em;
+    width: 200px;
+}
+
+.header__weather-title
+{
+    margin: 0;
+    font-family: 'Space Mono', monospace;
+    font-weight: bold;
+    /* font-size: 117%; */
+    text-align: center;
+}
+
+.header__weather-text
+{
+    margin: 0;
+    /* font-size: 80%; */
+    text-align: justify;
+    line-height: 110%;
+}
+
+.header__title
+{
+    overflow: visible;
+    font-family: Chomsky, fantasy;
+    font-size: 5.5em;
+    letter-spacing: -3px;
+    word-spacing: 15px;
+    text-align: center;
+    margin: 0;
+}
+
+
+/*––––––––––––––––––Подшапка газеты–––––––––––––––––*/
+.sub-header
+{
+    padding: 5px 0;
+
+    border-top: 1px solid;
+    border-bottom: 2px solid;
+}
+
+.sub-header__copyright
+{
+    display: inline-block;
+    font-size: .6em;
+    margin: 0 30px;
+}
+
+.sub-header__price
+{
+    float: right;
+}
+
+
+/*––––––––––––––––––Основной контент––––––––––––––––*/
+.content
+{
+    display: flex;
+}
+
+/*––––––––––––––––––Блок статьи–––––––––––––––––––––*/
+.article__title
+{
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-family: 'Six Caps', sans-serif;
+    font-size: 320%;
+    font-weight: bold;
+}
+
+.article__help
+{
+    margin-top: 10px !important;
+    margin-bottom: 4px !important;
+}
+
+.article__content {
+}
+
+.article__content p {
+    font-size: 80%;
+    text-align: justify;
+    text-indent: 2ch;
+    margin: 0;
+}
+
+.article__add-text
+{
+    margin-top: 10px;
+    margin-bottom: 4px;
+    text-indent: 2ch;
+    font-size: 80%;
+    font-style: italic;
+}
+
+.article__author
+{
+    display: block;
+    font-size: 80%;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.article__continue
+{
+    display: block;
+    font-size: 80%;
+    font-style: italic;
+    text-align: center;
+}
+
+.article__image
+{
+    margin: 0;
+    text-indent: 0;
+}
+
+.article__image.article__image_align_right
+{
+    float: right;
+
+    margin: 10px 0 5px 10px;
+}
+
+.article__image-caption {
+    font-size: .8rem;
+    text-decoration: underline;
+}
+
+.article__subtitle
+{
+    margin: 10px 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 117%;
+    text-align: center;
+    font-weight: bold;
+}
+
+.article__subtitle ~ .article__subtitle {
+    font-size: 100%;
+}
+
+/*––––––––––––––––––Блок главной фотографии–––––––––*/
+.main-photo__wrapper
+{
+    margin: 0;
+}
+
+.main-photo__img
+{
+    width: 100%;
+}
+
+.main-photo__title
+{
+    margin: 0;
+    font-weight: bold;
+    font-size: 117%;
+}
+
+.main-photo__desc
+{
+    margin-bottom: 20px;
+    font-size: 80%;
+}
+
+.main-photo__caption {
+    font-size: .7rem;
+    text-align: right;
+    text-transform: uppercase;
+}
+
+/*––––––––––––––––––Линия разделения––––––––––––––––*/
+.line
+{
+    border-top: 1px solid #000;
+}
+
+.line.line_type_bold
+{
+    margin-bottom: 3px;
+
+    border-width: 2px;
+}
+
+.line.line_type_short
+{
+    width: 70px;
+    margin: 0 auto;
+}
+
+/*––––––––––––––––––Центральные колонки газеты––––––––––––––––––*/
+.multicolumn
+{
+    margin-top: 10px;
+}
+
+.multicolumn__right,
+.multicolumn__left
+{
+    display: inline-block;
+
+    box-sizing: border-box;
+    width: 49%;
+
+    vertical-align: top;
+
+}
+
+.multicolumn__right
+{
+    padding-left: 10px;
+}
+
+.multicolumn__left
+{
+    padding-right: 10px;
+
+    border-right: 1px solid #000;
+}
+
+.multicolumn .line_type_short
+{
+    width: 50%;
+    margin: 10px auto;
+}
+
+.multicolumn .article__title
+{
+    margin: 10px 0 0 0;
+}
+
+.multicolumn .article__content {
+    column-count: 2;
+    column-gap: 15px;
+}
+
+.multicolumn .article__author {
+    column-span: all;
+}
+
+.multicolumn .article__continue {
+    column-span: all;
+}
+
+.multicolumn .article__title_font_racing {
+    font-family: 'Racing Sans One', cursive;
+    font-size: 200%;
+    font-weight: bold;
+}
+
+.multicolumn .article__title_font_farsan {
+    font-family: 'Farsan', cursive;
+    font-size: 230%;
+    font-weight: bold;
+    line-height: 120%;
+}
+
+.center-column
+{
+    margin-top: 20px;
+    padding: 0 10px;
+
+    flex-grow: 2;
+}
+
+/*––––––––––––––––––Второстепенные колонки газеты––––––––––––––––––*/
+.left-column
+{
+    border-right: 1px solid #000;
+}
+
+.right-column
+{
+    border-left: 1px solid #000;
+}
+
+.right-column,
+.left-column
+{
+    box-sizing: border-box;
+    width: 200px;
+    margin-top: 20px;
+    padding: 0 10px;
+
+    flex-shrink: 0;
+}
+
+/*––––––––––––––––––––––––––––––––––––––––––––––––––*/

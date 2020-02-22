@@ -1,4 +1,4 @@
-Ваша задача: анимировать элементы как на видео.
+Ваша задача: анимировать элементы как на этом [видео](https://d3c33hcgiwev3.cloudfront.net/rI9u70RrEee6lwoWG0Vqdg.processed/full/720p/index.mp4?Expires=1582502400&Signature=HKQuy7w-Grhf8-jEkmqJIC09972f~KmcpaV9v2KgAOVxnQzhfaW4UkbcFz8q8caxr2gMP5k4W0SBuJY4Y-cHj7qpHQfq9iKLL7AqulcwnwFvgPT2C6ajbo8yRtZWER5Ue38ktv96eYPKcHz76Pd3-6t1ZdVHYMF~dzDYeq4cyvY_&Key-Pair-Id=APKAJLTNE6QMUY6HBC5A).
 
 Необходимо:
 

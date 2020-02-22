@@ -8,24 +8,11 @@
     transition: .3s ease;
     
     perspective: 800px;
+    transform-style: preserve-3d;
+    perspective-origin: 100% 0;
 }
 
-@keyframes state-of-day {
-    40% {
-        background: skyblue;
-        box-shadow: 0 -400px 300px -300px steelblue inset;
-    }
-    70% {
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px orangered inset;
-    }
-    80%, 100% {
-        background: darkslateblue;
-        box-shadow: 0 -400px 300px -300px transparent inset;
-    }
-}
-
-.box_front {
+.box_backgound {
     position: relative;
     
     overflow: hidden;
@@ -33,30 +20,25 @@
     width: 500px;
     height: 380px;
     
-    background: darkslateblue;
-    box-shadow: 0 -400px 300px -300px transparent inset;
-
-    animation: state-of-day 100s linear infinite -16s;
+    animation: sky-color 100s linear infinite;
 }
 
-/*TODO
-Цвета неба задаются следующими свойствами:
-    День:
+@keyframes sky-color {
+    0% {
         background: skyblue;
         box-shadow: 0 -400px 300px -300px steelblue inset;
-    Вечер:
+    }
+    25% {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px orangered inset;
-    Ночь:
+    }
+    50% {
         background: darkslateblue;
         box-shadow: 0 -400px 300px -300px transparent inset;
-        
-Нужно реализовать плавный переход между ними и зациклить его.
-*/
-
-@keyframes shipping {
-    85%, 100% {
-        right: 100%;
+    }
+    100% {
+        background: skyblue;
+        box-shadow: 0 -400px 300px -300px steelblue inset;
     }
 }
 
@@ -95,7 +77,14 @@
     
     width: 100px;
     height: 36px;
-    animation: shipping 60s linear infinite 5s;
+    
+    animation: ship-move 60s linear infinite;
+}
+
+@keyframes ship-move {
+    to {
+        transform: translateX(-700px);
+    }
 }
 
 .ship_smokestack {
@@ -122,16 +111,6 @@
     box-shadow: 13px 0 0 0 #a18e6e, -13px 0 0 0 #a18e6e;
 }
 
-@keyframes smokes {
-    from {
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-20px) scale(1.7);
-        opacity: 0;
-    }
-}
-
 .smoke div {
     position: absolute;
     
@@ -140,50 +119,53 @@
     
     border-radius: 50%;
     background: #fff;
-
-    opacity: 0;
-
-    animation: smokes 3s ease-out infinite;
 }
 
 .smoke-1 {
     top: -25px;
     right: 44px;
-    animation-delay: 1s !important;
+    
+    animation: smoke-move 2s ease-out infinite;
 }
 
 .smoke-2 {
     top: -25px;
     right: 42px;
+    
+    animation: smoke-move 2s ease-out 1.2s infinite;
 }
 
 .smoke-3 {
     top: -25px;
     right: 49px;
-    animation-delay: 2s !important;
+    
+    animation: smoke-move 2s ease-out .7s infinite;
 }
 
-@keyframes sunrise {
-    from {
-        transform: rotate(0turn) translateX(-310px) rotate(1turn);
+@keyframes smoke-move {
+    50% {
+        transform: translateY(-150%) scale(1.5);
     }
-    to {
-        transform: rotate(1turn) translateX(-310px) rotate(0turn);
+    100% {
+        transform: translateY(-300%) scale(2);
+        
+        opacity: 0;
     }
 }
 
 .sun {
     position: absolute;
-    top: 340px;
-    right: 210px;
+    top: 30px;
+    right: 50%;
     
     width: 80px;
     height: 80px;
     
+    animation: sun-rotate 15s linear infinite;
+    
     border-radius: 50%;
     background: #ffcf11;
     box-shadow: 0 0 100px #ffdf05;
-    animation: sunrise 100s linear infinite;
 }
 
 .sun-wrapper {
@@ -193,6 +175,13 @@
     height: 100%;
     
     transform-origin: bottom center;
+    animation: sun-move 100s linear infinite;
+}
+
+@keyframes sun-move {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .sun div {
@@ -204,74 +193,49 @@
     height: 100px;
     margin-left: -1px;
     
-    border: solid #ffcf11;
+    border: 10px solid #ffcf11;
     border-width: 10px 0 10px 0;
-    animation: sun-rotates 20s linear infinite;
-}
-
-@keyframes sun-rotates {
-    from {
-        transform: rotate(0turn);
-    }
-    to {
-        transform: rotate(1turn);
-    }
 }
 
 .sun div:nth-child(2) {
     transform: rotate(18deg);
-    animation-delay: -1s;
 }
 
 .sun div:nth-child(3) {
     transform: rotate(36deg);
-    animation-delay: -2s;
 }
 
 .sun div:nth-child(4) {
     transform: rotate(54deg);
-    animation-delay: -3s;
 }
 
 .sun div:nth-child(5) {
     transform: rotate(72deg);
-    animation-delay: -4s;
 }
 
 .sun div:nth-child(6) {
     transform: rotate(90deg);
-    animation-delay: -5s;
 }
 
 .sun div:nth-child(7) {
     transform: rotate(-18deg);
-    animation-delay: -6s;
 }
 
 .sun div:nth-child(8) {
     transform: rotate(-36deg);
-    animation-delay: -7s;
 }
 
 .sun div:nth-child(9) {
     transform: rotate(-54deg);
-    animation-delay: -8s;
 }
 
 .sun div:nth-child(10) {
     transform: rotate(-72deg);
-    animation-delay: -9s;
-}
-
-@keyframes clouds {
-    85%, 100% {
-        left: 100%;
-    }
 }
 
 .cloud {
     position: absolute;
-    left: -200px;
+    left: -180px;
     
     width: 200px;
     height: 60px;
@@ -279,11 +243,11 @@
     opacity: .8;
     border-radius: 200px;
     background: #fff;
-    animation: clouds 20s linear infinite;
 }
 
 .cloud:before,
 .cloud:after {
+    position: absolute;
     position: absolute;
     top: -15px;
     left: 10px;
@@ -308,28 +272,54 @@
 
 .cloud-1 {
     top: 10px;
-    transform: scale(-0.4, 0.4);
-    animation-duration: 50s;
-    animation-delay: -20s;
+    
+    transform: scale(.3);
+    animation: move-cloud-3 70s linear infinite;
+}
+
+@keyframes move-cloud-3 {
+    to {
+        transform: translateX(700px) scale(.3);
+    }
 }
 
 .cloud-2 {
     top: 50px;
-    transform: scale(0.6, 0.6);
-    animation-duration: 40s;
+    
+    transform: scale(-.4, .4);
+    animation: move-cloud-2 40s linear 20s infinite;
+}
+
+@keyframes move-cloud-2 {
+    to {
+        transform: translateX(700px) scale(-.4, .4);
+    }
 }
 
 .cloud-3 {
     top: 100px;
-    transform: scale(-0.8, 0.8);
-    animation-duration: 30s;
-    animation-delay: -20s;
+    
+    transform: scale(.5);
+    animation: move-cloud-1 30s linear 3s infinite;
+}
+
+@keyframes move-cloud-1 {
+    to {
+        transform: translateX(700px) scale(.5);
+    }
 }
 
 .cloud-4 {
     top: 170px;
-    animation-duration: 20s;
-    animation-delay: -2s;
+    
+    transform: scale(-.6, .6);
+    animation: move-cloud-4 20s linear 15s infinite;
+}
+
+@keyframes move-cloud-4 {
+    to {
+        transform: translateX(700px) scale(-.6, .6);
+    }
 }
 
 .sea {
@@ -355,4 +345,10 @@
     content: '';
     
     background: #1d7fbb;
+}
+
+@keyframes sun-rotate {
+    to {
+        transform: rotate(1turn);
+    }
 }

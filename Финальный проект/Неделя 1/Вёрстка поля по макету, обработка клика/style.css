@@ -1,0 +1,91 @@
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #CFD0CF;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 42px;
+    line-height: 47px;
+    color: #434344;
+
+    margin-top: 0;
+    padding-top: 40px;
+    margin-bottom: 40px;
+}
+
+.cards-field {
+    margin: 0 auto;
+    width: 595px;
+    
+}
+
+.margin-wrapper {
+    margin: -12.5px;
+    overflow: hidden;
+    transform: perspective(600px);
+}
+
+.cards-field .card {
+    width: 130px;
+    height: 130px;
+    background: linear-gradient(to right top, #22ab93 0%, #19668d 100%);
+    float: left;
+    margin: 12.5px;
+    border-radius: 9px;
+    border: 5px solid white;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    transition: transform 0.5s;
+    transform-origin: center;
+    transform-style: preserve-3d;
+    position: relative;
+    transform: perspective(600px);
+}
+
+.cards-field .card .front, .cards-field .card .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.cards-field .card .front {
+    background-color:white;
+    transform: rotateY(180deg);
+    font-size: 75px;
+    text-align: center;
+    line-height: 120px;
+}
+
+.animation-card-front {
+    animation: turn-card-on-front 1s ease-out forwards;
+}
+
+.animation-card-back {
+    animation: turn-card-on-back 1s ease-out forwards;
+}
+
+@keyframes turn-card-on-front {
+    0% {
+        transform: perspective(600px);
+    }
+    100% {
+        transform: perspective(600px) rotateY(180deg);
+    }
+}
+
+@keyframes turn-card-on-back {
+    0% {
+        transform: perspective(600px) rotateY(180deg);
+    }
+    100% {
+        transform: perspective(600px);
+    }
+}
